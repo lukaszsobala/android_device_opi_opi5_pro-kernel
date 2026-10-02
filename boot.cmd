@@ -1,6 +1,8 @@
 setenv load_addr "0x9000000"
-setenv boot_device "mmc"
-setenv boot_devnum "0"
+# Default to the device this script was loaded from (set by U-Boot bootstd),
+# so the same image boots from SD or eMMC; config.txt may still override.
+setenv boot_device "${devtype}"
+setenv boot_devnum "${devnum}"
 setenv boot_partnum "1"
 setenv root_partnum "2"
 setenv prefix "/"
